@@ -1,0 +1,8 @@
+<h3>Your Payment:</h3>
+
+<%= @payment.payment_name %>
+<%= @payment.payment_amount %>
+<%= @payment.user.username %>
+<%= @payment.expense.name %><br>
+
+<%= link_to 'All Payments', payments_path %> 

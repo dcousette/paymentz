@@ -1,0 +1,43 @@
+<h1>Payments</h1>
+<div>
+  <table>
+  <thead>
+  <tr>
+    <th>
+      <td>Payment table</td>
+    </th>
+    <th>
+      <td>Payment table</td>
+    </th>
+    <th>
+      <td>Payment table</td>
+    </th>
+  </tr>
+  </thead>
+    <% @payments.each do |payment| %>
+    <tr>
+      <td>
+        <%= payment.payment_name %>
+      </td>
+      <td>
+        <%= payment.payment_amount %>
+      </td>
+      <td>
+        <%= payment.user.first_name %>
+      </td>
+      <td>
+        <%= payment.expense.name %>
+      </td>
+      <td>
+        <%= link_to 'Edit', edit_payment_path(payment) %>
+      </td>
+      <td>
+        <%= link_to 'View', payment_path(payment) %>
+      </td>
+    <% end %>
+  </tr>
+</div>
+</table>
+</br>
+
+<%= link_to 'New Payment', new_payment_path %>
