@@ -6,7 +6,6 @@ class PaymentsController < ApplicationController
   end 
   
   def show
-    # @payment = Payment.find(params[:id])
   end
   
   def new
@@ -25,12 +24,9 @@ class PaymentsController < ApplicationController
   end
   
   def edit
-    # @payment = Payment.find(params[:id])
   end
   
   def update 
-    # @payment = Payment.find(params[:id])
-  
     if @payment.update(payment_params)
       flash[:session] = "Your payment has been updated successfully."
       redirect_to payment_path(@payment)
@@ -40,8 +36,7 @@ class PaymentsController < ApplicationController
   end
   
   def destroy 
-    # payment = Payment.find(params[:id])
-    payment.destroy
+    @payment.destroy
   end
   
   def set_payment
