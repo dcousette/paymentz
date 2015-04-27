@@ -1,0 +1,39 @@
+<div class="container">
+  <h4>Create a user profile:</h4>
+  
+  <div class="">
+    <% if @user.errors.full_messages.each do |msg| %>
+        <ul>
+          <li><%= msg %></li>
+        </ul>
+      <% end %>
+    <% end %>
+  </div>
+  
+  <div class="#">
+    <%= form_for @user do |f| %>
+      <div>
+        <%= f.label :username  %>
+        <%= f.text_field :username %>
+      </div>
+      <div>
+        <%= f.label :first_name %>
+        <%= f.text_field :first_name %>
+      </div>
+      <div>
+        <%= f.label :last_name %>
+        <%= f.text_field :last_name %>
+      </div>
+      <div>
+        <%= f.label :email_address %>
+        <%= f.text_field :email_address %>
+      </div>
+      <div>
+        <%= f.label :password %>
+        <%= f.text_field :password %>
+      </div>
+      
+      <%= f.submit %>
+    <% end %>
+  </div>
+</div>

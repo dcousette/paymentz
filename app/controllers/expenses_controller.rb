@@ -1,4 +1,6 @@
 class ExpensesController < ApplicationController 
+  before_action :require_user
+  
   def new
     @expense = Expense.new
   end 
