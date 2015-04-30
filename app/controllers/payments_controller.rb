@@ -16,6 +16,7 @@ class PaymentsController < ApplicationController
   
   def create
     @payment = Payment.new(payment_params)
+    @payment.user_id = session[:user_id]
     
     if @payment.save 
       flash[:notice] = "Your payment was created successfully!"
@@ -47,6 +48,6 @@ class PaymentsController < ApplicationController
   
   private 
     def payment_params
-      params.require(:payment).permit(:payment_name, :payment_amount, :user_id, :expense_id)
+      params.require(:payment).permit(:payment_name, :payment_amount, :expense_id)
     end
 end

@@ -21,10 +21,6 @@
     <%= f.text_field :payment_amount %><br>
   </div>
   <div class='form-group'>
-    <%= f.label :user_id %>
-    <%= f.collection_select :user_id, User.all, :id, :username %><br>
-  </div>
-  <div class='form-group'>
     <%= f.label :expense_id %>
     <%= f.collection_select :expense_id, Expense.all, :id, :name %><br>
   </div>

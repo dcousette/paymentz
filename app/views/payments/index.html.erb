@@ -16,7 +16,7 @@
     <tr>
       <td><%= payment.payment_name %></td>
       <td><%= payment.payment_amount %></td>
-      <td><%= payment.user.first_name %></td>
+      <td><%= link_to payment.user.first_name, user_path(payment.user) %></td>
       <td><%= payment.expense.name %></td>
       <td><%= payment.expense.created_at %></td>
       <td><%= link_to 'Edit', edit_payment_path(payment) %></td>

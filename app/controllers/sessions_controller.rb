@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id 
       flash[:notice] = "You've logged in successfully"
-      redirect_to payments_path 
+      redirect_to user_path(user) 
     else 
       flash[:error] = "Please enter the correct username and password." 
       render 'new'
@@ -19,13 +19,5 @@ class SessionsController < ApplicationController
     session[:user_id] = nil
     flash[:notice] = "You have logged out."
     redirect_to '/'
-  end
-  
-  def logged_in?
-    !!current_user
-  end
-  
-  def current_user
-    @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end
 end 
