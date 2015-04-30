@@ -1,0 +1,30 @@
+<h3><%= @user.first_name %>'s Profile: </h3>
+
+<div>
+  <h4>Recent Payments:</h4>
+</div>
+<div>
+  <ul>
+    <% @user.payments.each do |payment| %>
+    <li><%= link_to payment.payment_name, payment_path(payment) %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <h4>Expenses:</h4>
+</div>
+<div>
+  <ul>
+    <% @user.expenses.each do |expense| %>
+    <li><%= link_to expense.name, expense_path(expense) %></li>
+    <% end %>
+  </ul>
+</div>
+
+<div>
+  <%= link_to 'Enter a new payment', new_payment_path %>
+</div>
+<div>
+  <%= link_to 'Show all payments', payments_path %>
+</div>
