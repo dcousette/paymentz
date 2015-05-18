@@ -18,7 +18,7 @@
       <td><%= payment.payment_amount %></td>
       <td><%= link_to payment.user.first_name, user_path(payment.user) %></td>
       <td><%= payment.expense.name %></td>
-      <td><%= payment.expense.created_at %></td>
+      <td><%= payment.created_at %></td>
       <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
       <td><%= link_to 'View', payment_path(payment) %></td>
     <% end %>
@@ -27,6 +27,27 @@
 </div>
 </table>
 </br>
+<div class="well row">
+  <div class="col-md-3">
+    <h5>Total Payments:</h5>
+    <p><%= @payments.total_payments %></p>
+  </div>
+  <div class="col-md-3">
+    <h5>Payments This Month:</h5>
+    <p><%= @payments.payments_this_month %></p>
+  </div>
+  <div class="col-md-3">
+    <h5>TBD:</h5>
+    <p><%= @payments.total_payments %></p>
+  </div>
+  <div class="col-md-3">
+    <h5>TBD:</h5>
+    <p><%= @payments.total_payments %></p>
+  </div>
+</div>
+<div>
+  <%= render 'expense_table' %>
+</div>
 <div><%= link_to 'New Payment', new_payment_path %></div>
 <div><%= link_to 'Add New Expense', new_expense_path %></div>
 <div><%= link_to 'Logout', logout_path %></div>

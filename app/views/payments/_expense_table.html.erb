@@ -1,0 +1,20 @@
+<table class="table table-striped table-bordered table-hover">
+  <thead>
+    <tr>
+      <th>Expense Name </th>
+      <th>Avg Monthly Cost </th>
+      <th>Expense Cost YTD </th>
+      <th>Expense Cost MTD </th>
+    </tr>  
+</thead>
+  <tbody>
+    <% @expenses.each do |expense| %>
+    <tr>
+      <td><%= expense.name %></td>
+      <td><%= expense.amount %></td>
+      <td><%= expense.payments.total_payments %></td>
+      <td><%= expense.amount %></td>
+    </tr>
+    <% end %>
+  </tbody>
+</table>

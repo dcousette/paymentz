@@ -6,24 +6,27 @@
           <%= msg %>
         </ul>
       <% end %>
-    </div> 
+    </div>
   </div>
 <% end %>
 
-<%= form_for(@payment, class:'form-horizontal') do |f| %>
-<div>
+<%= form_for(@payment) do |f| %>
+<div class='form-horizontal'>
   <div class='form-group'>
-    <%= f.label :payment_name %>
-    <%= f.text_field :payment_name %><br>
+    <%= f.label :payment_name %><br/>
+    <%= f.text_field :payment_name %>
   </div>
+  <br/>
   <div class='form-group'>
-    <%= f.label :payment_amount %>
-    <%= f.text_field :payment_amount %><br>
+    <%= f.label :payment_amount %><br/>
+    <%= f.text_field :payment_amount %>
   </div>
+  <br/>
   <div class='form-group'>
-    <%= f.label :expense_id %>
+    <%= f.label :expense_id %><br/>
     <%= f.collection_select :expense_id, Expense.all, :id, :name %><br>
   </div>
+  <br/>
   <%= f.submit %>
 </div>
 <% end %>

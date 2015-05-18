@@ -30,6 +30,7 @@ class UsersController < ApplicationController
   end
   
   def show
+    @expenses = Expense.all 
   end
   
   private 

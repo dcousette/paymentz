@@ -1,16 +1,17 @@
-<div class="">
+<div class="container">
 <h4>Create a new expense name:</h4>
 
 <%= form_for @expense do |f| %>
   <div class="">
-    <%= f.label :name %>
+    <%= f.label :name %><br/>
     <%= f.text_field :name %>
   </div>
+  <br/>
   <div class="">
-    <%= f.label :amount %>
+    <%= f.label :amount %><br/>
     <%= f.text_field :amount %>
   </div>
-
+  <br/>
   <%= f.submit %>
 <% end %>
 </div>

@@ -1,30 +1,55 @@
-<h3><%= @user.first_name %>'s Profile: </h3>
-
+<div class="container">
 <div>
-  <h4>Recent Payments:</h4>
-</div>
-<div>
-  <ul>
-    <% @user.payments.each do |payment| %>
-    <li><%= link_to payment.payment_name, payment_path(payment) %></li>
-    <% end %>
-  </ul>
+  <h4><%= @user.first_name %>'s Recent Payments:</h4> 
 </div>
 
 <div>
-  <h4>Expenses:</h4>
+  <table class="table table-striped table-hover table-bordered">
+    <thead>
+      <tr>
+        <th>Payment name </th>
+        <th>Payment amount</th>
+        <th>Expense name </th>
+        <th>Payment date </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @user.payments.each do |payment| %>
+      <tr>
+        <td><%= link_to payment.payment_name, payment_path(payment) %></td>
+        <td><%= payment.payment_amount %></td>
+        <td><%= payment.expense.name %></td>
+        <td><%= payment.created_at %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+<div class="row well">
+  <div class="col-md-3">
+    <h5><%= @user.first_name %>'s Payments YTD:</h5>
+    <p><%= @user.total_payments %></p>
+  </div>
+  <div class="col-md-3">
+    <h5><%= @user.first_name %>'s Payments MTD:</h5>
+    <p><%= @user.payments_this_month %></p>
+  </div>
+  <div class="col-md-3">
+    <h5><%= @user.first_name %>'s TBD:</h5>
+    <p><%= @user.total_payments %></p>
+  </div>
+  <div class="col-md-3">
+    <h5><%= @user.first_name %>'s TBD:</h5>
+    <p><%= @user.total_payments %></p>
+  </div>
 </div>
 <div>
-  <ul>
-    <% @user.expenses.each do |expense| %>
-    <li><%= link_to expense.name, expense_path(expense) %></li>
-    <% end %>
-  </ul>
+  <%= render 'payments/expense_table' %>
 </div>
-
 <div>
   <%= link_to 'Enter a new payment', new_payment_path %>
 </div>
 <div>
   <%= link_to 'Show all payments', payments_path %>
+</div>
 </div>

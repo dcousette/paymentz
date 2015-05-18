@@ -5,6 +5,7 @@ class PaymentsController < ApplicationController
   
   def index
     @payments = Payment.all 
+    @expenses = Expense.all 
   end 
   
   def show
