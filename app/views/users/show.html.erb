@@ -26,6 +26,10 @@
     </tbody>
   </table>
 </div>
+<div class="">
+  <%= link_to 'Enter a new payment', new_payment_path, class: "btn btn-primary" %>
+</div>
+<br/>
 <div class="row well">
   <div class="col-md-3">
     <h5><%= @user.first_name %>'s Payments YTD:</h5>
@@ -47,11 +51,8 @@
 <div>
   <%= render 'payments/expense_table' %>
 </div>
-<div class="">
-  <%= link_to 'Enter a new payment', new_payment_path, class: "btn btn-primary" %>
-</div>
 </br>
 <div>
-  <%= link_to 'Show all payments', payments_path, class: "btn btn-primary" %>
+  <%= link_to 'Add New Expense', new_expense_path, class: "btn btn-primary" %>
 </div>
 </div>

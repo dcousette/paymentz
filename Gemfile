@@ -30,9 +30,6 @@ gem 'autoprefixer-rails'
 gem 'bcrypt', '~> 3.1.7'
 gem 'pry'
 
-
-
-
 # Use unicorn as the app server
 # gem 'unicorn'
 
