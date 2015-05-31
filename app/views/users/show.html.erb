@@ -1,4 +1,5 @@
 <div class="container">
+
 <div>
   <h4><%= @user.first_name %>'s Recent Payments:</h4> 
 </div>
@@ -17,9 +18,9 @@
       <% @user.payments.each do |payment| %>
       <tr>
         <td><%= link_to payment.payment_name, payment_path(payment) %></td>
-        <td><%= payment.payment_amount %></td>
+        <td><%= number_to_currency payment.payment_amount %></td>
         <td><%= payment.expense.name %></td>
-        <td><%= payment.created_at %></td>
+        <td><%= format_date payment.created_at %></td>
       </tr>
       <% end %>
     </tbody>
@@ -28,28 +29,29 @@
 <div class="row well">
   <div class="col-md-3">
     <h5><%= @user.first_name %>'s Payments YTD:</h5>
-    <p><%= @user.total_payments %></p>
+    <p><%= number_to_currency @user.total_payments %></p>
   </div>
   <div class="col-md-3">
     <h5><%= @user.first_name %>'s Payments MTD:</h5>
-    <p><%= @user.payments_this_month %></p>
+    <p><%= number_to_currency @user.payments_this_month %></p>
   </div>
   <div class="col-md-3">
     <h5><%= @user.first_name %>'s TBD:</h5>
-    <p><%= @user.total_payments %></p>
+    <p><%= number_to_currency @user.total_payments %></p>
   </div>
   <div class="col-md-3">
     <h5><%= @user.first_name %>'s TBD:</h5>
-    <p><%= @user.total_payments %></p>
+    <p><%= number_to_currency @user.total_payments %></p>
   </div>
 </div>
 <div>
   <%= render 'payments/expense_table' %>
 </div>
-<div>
-  <%= link_to 'Enter a new payment', new_payment_path %>
+<div class="">
+  <%= link_to 'Enter a new payment', new_payment_path, class: "btn btn-primary" %>
 </div>
+</br>
 <div>
-  <%= link_to 'Show all payments', payments_path %>
+  <%= link_to 'Show all payments', payments_path, class: "btn btn-primary" %>
 </div>
 </div>
