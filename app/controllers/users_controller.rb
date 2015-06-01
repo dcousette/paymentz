@@ -8,9 +8,10 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     
-    if @user.save 
+    if @user.save
+      session[:user_id] = @user.id 
       flash[:notice] = "Your user was created."
-      redirect_to payments_path 
+      redirect_to user_path(@user) 
     else 
       render 'new'
     end
@@ -20,7 +21,6 @@ class UsersController < ApplicationController
   end
   
   def update
-    
     if @user.update(user_params)
       flash[:notice] = "Your user has been updated."
       redirect_to user_path(@user)

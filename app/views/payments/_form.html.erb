@@ -1,16 +1,3 @@
-<% if @payment.errors.any? %>
-  <div class="well">
-    <div class="span8">
-      <% @payment.errors.full_messages.each do |msg| %>
-        <ul>
-          <%= msg %>
-        </ul>
-      <% end %>
-    </div>
-  </div>
-<% end %>
-
-
 <div class='col-md-2'>
   <%= form_for @payment do |f| %>
     <div class='form-group'>

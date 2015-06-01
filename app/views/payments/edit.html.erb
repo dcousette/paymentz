@@ -1,4 +1,9 @@
 <div class="container">
-  <h4>Edit Payment</h4>
+  <div class="page-header">
+    <h1>Edit Payment</h1>
+  </div>
+  
+  <%= render 'shared/error', object: @payment %>
+  
   <%= render 'form' %>
 </div>

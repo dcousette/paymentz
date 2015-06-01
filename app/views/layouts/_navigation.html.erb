@@ -15,9 +15,15 @@
             <li><%= link_to 'Add a payment', new_payment_path %></li>
             <li><%= link_to 'Add a new expense', new_expense_path %></li>
             <li class="divider"></li>
+            <li><%= link_to 'Edit Profile', edit_user_path(current_user) %></li>
+            <li class="divider"></li>
             <li><%= link_to 'Logout', logout_path %></li>
           </ul>
         </li>
+      </ul>
+    <% else %>
+      <ul class="nav navbar-nav">
+        <li><%= link_to 'Signup', new_user_path %></li>
       </ul>
     <% end %>
     </div><!-- /.navbar-collapse -->
