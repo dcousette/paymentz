@@ -21,6 +21,7 @@
         <td><%= number_to_currency payment.payment_amount %></td>
         <td><%= payment.expense.name %></td>
         <td><%= format_date payment.created_at %></td>
+        <td><%= link_to 'Edit', edit_payment_path(payment) %></td>
       </tr>
       <% end %>
     </tbody>
@@ -33,19 +34,19 @@
 <div class="row well">
   <div class="col-md-3">
     <h5><%= @user.first_name %>'s Payments YTD:</h5>
-    <p><%= number_to_currency @user.total_payments %></p>
+    <p><%= number_to_currency @user.payments.total_payments %></p>
   </div>
   <div class="col-md-3">
     <h5><%= @user.first_name %>'s Payments MTD:</h5>
-    <p><%= number_to_currency @user.payments_this_month %></p>
+    <p><%= number_to_currency @user.payments.payments_this_month %></p>
   </div>
   <div class="col-md-3">
     <h5><%= @user.first_name %>'s TBD:</h5>
-    <p><%= number_to_currency @user.total_payments %></p>
+    <p><%= number_to_currency 0 %></p>
   </div>
   <div class="col-md-3">
     <h5><%= @user.first_name %>'s TBD:</h5>
-    <p><%= number_to_currency @user.total_payments %></p>
+    <p><%= number_to_currency 0 %></p>
   </div>
 </div>
 <div>

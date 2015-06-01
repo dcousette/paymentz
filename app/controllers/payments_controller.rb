@@ -1,7 +1,7 @@
 class PaymentsController < ApplicationController 
   before_action :set_payment, only: [:show, :edit, :update, :destroy]
   before_action :require_user
-  
+  before_action :require_same_user, only: [:edit, :update] 
   
   def index
     @payments = Payment.all 
@@ -50,5 +50,12 @@ class PaymentsController < ApplicationController
     
     def set_payment
       @payment = Payment.find(params[:id])
+    end
+    
+    def require_same_user
+      if @current_user != @payment.user 
+        flash[:error] = "You can't do that!"
+        redirect_to :back
+      end
     end
 end

@@ -9,7 +9,7 @@ class ExpensesController < ApplicationController
     @expense = Expense.new(expense_params)
     
     if @expense.save 
-      flash[:notice] = "Success"
+      flash[:notice] = "Your new expense has been added"
       redirect_to payments_path 
     else 
       render 'new'

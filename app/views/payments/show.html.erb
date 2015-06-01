@@ -3,11 +3,16 @@
 <div class="page-header">
   <h1><%= @payment.payment_name %><small> - payment details</small></h1>
 </div>
+<div class="well">
+  <h4>Payment Amount: <%= number_to_currency @payment.payment_amount %></h4>
+  <h4>Paid by: <%= @payment.user.first_name %></h4>
+  <h4>Expense: <%= @payment.expense.name %></h4>
+  <h4>Payment Date: <%= format_date @payment.created_at %></h4>
+</div>
 
-<h4><%= number_to_currency @payment.payment_amount %></h4>
-<h4><%= @payment.user.username %></h4>
-<h4><%= @payment.expense.name %></h4>
+<div>
+  <%= link_to 'Edit Payment', edit_payment_path(@payment), class:'btn btn-primary' %>    
+</div>
 
-<%= link_to 'All Payments', payments_path %>     
 </div>
 
