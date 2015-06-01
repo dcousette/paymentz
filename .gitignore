@@ -17,3 +17,5 @@
 
 #Ignore Cloud 9 temp files
 .c9/metadata/
+
+.c9/
