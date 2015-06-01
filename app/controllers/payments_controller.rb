@@ -43,12 +43,12 @@ class PaymentsController < ApplicationController
     @payment.destroy
   end
   
-  def set_payment
-    @payment = Payment.find(params[:id])
-  end
-  
   private 
     def payment_params
       params.require(:payment).permit(:payment_name, :payment_amount, :expense_id)
+    end
+    
+    def set_payment
+      @payment = Payment.find(params[:id])
     end
 end
