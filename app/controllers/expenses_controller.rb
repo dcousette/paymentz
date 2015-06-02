@@ -1,5 +1,6 @@
 class ExpensesController < ApplicationController 
   before_action :require_user
+  before_action :setup_expense, except: [:new, :create]
   
   def new
     @expense = Expense.new
@@ -16,13 +17,30 @@ class ExpensesController < ApplicationController
     end
   end
   
+  def edit
+  end
+  
+  def update
+    @expense.update(expense_params)
+    
+    if @expense.save 
+      flash[:notice] = "Expense has been updated"
+      redirect_to user_path(current_user)
+    else 
+      render 'edit'
+    end
+  end
+  
   def show 
-    @expense = Expense.find(params[:id])  
   end 
   
   private 
   
   def expense_params
    params.require(:expense).permit(:name, :amount)
-  end 
+  end
+  
+  def setup_expense
+    @expense = Expense.find_by(slug: params[:id])
+  end
 end

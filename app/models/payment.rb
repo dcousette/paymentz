@@ -6,7 +6,7 @@ class Payment < ActiveRecord::Base
   validates :payment_name, uniqueness: true
   before_save :generate_slug
   
-  def self.total_payments 
+  def self.total_payments
     total = 0 
     self.all.each do |payment|
       total += payment[:payment_amount]
@@ -14,7 +14,7 @@ class Payment < ActiveRecord::Base
     total 
   end 
   
-  def self.payments_this_month 
+  def self.payments_this_month
     total = 0 
     self.all.each do |payment|
       total += payment[:payment_amount] if Time.now.month == payment.created_at.month 
