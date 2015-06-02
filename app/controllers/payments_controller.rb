@@ -49,7 +49,7 @@ class PaymentsController < ApplicationController
     end
     
     def set_payment
-      @payment = Payment.find(params[:id])
+      @payment = Payment.find_by(slug: params[:id])
     end
     
     def require_same_user

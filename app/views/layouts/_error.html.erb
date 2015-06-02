@@ -1,8 +1,8 @@
 <div class="container">
   <% if flash[:error] %>
-    <div class="alert alert-danger alert-dismissible" role="alert"><%= flash[:error] %></div>
+    <div class="alert alert-danger" role="alert"><%= flash[:error] %></div>
   <% elsif flash[:notice] %>
-    <div class="alert alert-success alert-dismissible" role="alert"><%= flash[:notice] %></div>
+    <div class="alert alert-success" role="alert"><%= flash[:notice] %></div>
   <% end %>
 </div>
   
