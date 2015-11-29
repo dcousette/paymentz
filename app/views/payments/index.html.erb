@@ -16,7 +16,7 @@
     <tr>
       <td><%= payment.payment_name %></td>
       <td><%= number_to_currency payment.payment_amount %></td>
-      <td><%= link_to payment.user.first_name, user_path(payment.slug) %></td>
+      <td><%= link_to payment.user.first_name, user_path(payment.user) %></td>
       <td><%= payment.expense.name %></td>
       <td><%= format_date payment.created_at %></td>
       <td><%= link_to 'View', payment_path(payment) %></td>
